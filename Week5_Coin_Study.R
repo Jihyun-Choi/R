@@ -84,31 +84,35 @@ pprt(A, nrow(S))
 nrow(A) / nrow(S)
 
 
-#########################################################
-## rolling four dices at the same time(Self-Checking 4)##
-#########################################################
+##########################################################
+## rolling four dices at the same time(Self-Checking 4) ##
+##########################################################
+
 S <- rolldie2(4)
 
 A <- subset(S, X1+X2+X3+X4 >=15)
 pprt(A, nrow(S))
 
-B <- subset(S, apply(S, 1, max)==6)
+B <- subset(S, apply(S, 1, max)==6) 
 pprt(B, nrow(S))
 
 C <- subset(S, apply(S, 1, min)==1)
 pprt(C, nrow(S))
 
-AB <- intersect2(A,B)
-AC <- intersect2(A,C)
-BC <- intersect2(B,C)
+# intersection -> union
+AB <- union2(A,B)
+AC <- union2(A,C)
+BC <- union2(B,C)
 
-ABC <- intersect2(AB,C) 
+ABC <- union2(AB,C) 
 
 pprt(AB, nrow(S))
 pprt(AC, nrow(S))
 pprt(BC, nrow(S))
 pprt(ABC, nrow(S))
 
+
+# library(ggVennDiagram)을 이용한 벤다이어그램 그리기
 # Drawing Venn-diagram
 vennData <- list(A = element(A),
                  B = element(B),
@@ -117,7 +121,9 @@ vennData <- list(A = element(A),
 ggVennDiagram(vennData)
 
 
-## Self-Checking 5
+#####################
+## Self-Checking 5 ##
+#####################
 AuB <- union2(A,B)
 AuC <- union2(A,C)
 BuC <- union2(B,C)
@@ -128,15 +134,19 @@ pprt(AuC, nrow(S))
 pprt(BuC, nrow(S))
 pprt(AuBuC, nrow(S))
 
-## Self-Checking 6
+
+#####################
+## Self-Checking 6 ##
+#####################
 cprt(A, B)
 cprt(A, C)
 cprt(A, BC)
 cprt(A, BuC)
 
 
-
-## Self-Checking 7
+#####################
+## Self-Checking 7 ##
+#####################
 S <- rolldie2(5)
 
 evenEventFunction <- function(x){
@@ -174,25 +184,28 @@ pprt2 <- function(x, xn, n, prt=TRUE) {
 }
 
 indep.event(A, B, N)
+# independence 이론을 배웠던 것을 이 코드 한줄로 끝낼수 있다가 제일 중요 
 
 
-## Self-Checking 8
+#####################
+## Self-Checking 8 ##
+#####################
 prior <- c(0.2, 0.4, 0.3, 0.1)
 cond <- c(4, 2, 1, 5)/100
 tot <- prior*cond
 tot
 stot <- sum(tot)
 
-
-
-## Self-Checking 9
+#####################
+## Self-Checking 9 ##
+#####################
 post <- tot / stot
 bayes.plot(prior, post)
 
 
 
 ######################################################
-## Lab code for Chap.2 (Cont.)                     ##
+## Lab code for Chap.2 (Cont.)                      ##
 ######################################################
 
 ####################
