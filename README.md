@@ -3,6 +3,7 @@
 [R 실습을 위한 확률및통계 이론](https://www.notion.so/ffd4237f4234474d92731822ee9b10d0)
 
 
+
 ### Ch1 Probability Theory
 
 **`Sample Space`**  **`Event`**  **`The Algebra of Events`**  **`Probability`**  **`Conditinoal Probability`**  **`Multiplicative law`**  **`Independent Events`**  **`Theorem of total probability`**  **`Bayes theorem`**
