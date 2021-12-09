@@ -27,5 +27,3 @@
 **`Continuous Random Variable`**  **`Uniform`**  **`Standard Normal`**  **`Normal`**
 
 ⇒ 분포들의 PDF, E(X), Var(X) 암기암기
-
-### Ch5 Hypothesis Test
